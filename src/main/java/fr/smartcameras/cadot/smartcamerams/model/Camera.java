@@ -1,7 +1,5 @@
 package fr.smartcameras.cadot.smartcamerams.model;
 
-import java.util.ArrayList;
-
 public class Camera {
     private int id;
     private String timestamp;
