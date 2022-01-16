@@ -37,4 +37,22 @@ public class CameraController {
             }
         }
     }
+
+    @PostMapping("/counter/{id}")
+    public void incCounter(@PathVariable("id") int id) {
+        if (!cameras.isEmpty()) {
+            int index = -1;
+            Camera c = null;
+            for (int i = 0; i < cameras.size(); i++) {
+                c = cameras.get(i);
+                if (c.getId() == id) {
+                    index = i;
+                    break;
+                }
+            }
+            if (index != -1) {
+                cameras.set(index, new Camera(c.getId(), c.getTimestamp(), c.getCount()+1, c.getTemperature()));
+            }
+        }
+    }
 }
